@@ -1,0 +1,14 @@
+*.sublime-project
+*.sublime-workspace
+*old
+*~
+.*
+old*
+*.tgz
+
+
+dist
+storybook-static
+node_modules
+
+*storybook.log
