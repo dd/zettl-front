@@ -4,14 +4,16 @@
   "description": "Cross-platform note editor with Markdown, tagging, and local-first storage, built with Vue and Electron.",
   "keywords": [
     "zettl",
+    "editor",
+    "note-editor",
     "notes",
     "markdown",
-    "editor",
     "vue",
-    "electron",
-    "offline-first",
+    "vite",
     "tagging",
-    "local-storage",
+    "knowledge-base",
+    "markdown-notes",
+    "pwa-ready",
     "cross-platform"
   ],
   "author": "Dmitry Dobrynin <dd@tovarisch.engineer>",
@@ -26,43 +28,21 @@
   },
   "homepage": "https://github.com/dd/zettl-editor#readme",
   "private": true,
-  "main": "dist/electron/main.js",
+  "type": "module",
   "files": [
-    "dist/vite/**",
-    "dist/electron/**",
+    "dist/**/*",
     "README.md"
   ],
-  "build": {
-    "appId": "com.zettl.editor",
-    "productName": "Zettl Editor",
-    "directories": {
-      "output": "release"
-    },
-    "files": [
-      "dist/vite/**",
-      "dist/electron/**"
-    ],
-    "extraMetadata": {
-      "main": "dist/electron/main.js"
-    },
-    "win": {
-      "target": "nsis"
-    }
-  },
   "scripts": {
-    "build": "run-s type-check build:main build:renderer",
-    "build:main": "tsc -p electron/tsconfig.json",
-    "build:renderer": "vite build",
-    "dev": "concurrently \"vite\" \"npm:watch:main\" \"cross-env NODE_ENV=development electron dist/electron/main.js\"",
-    "watch:main": "tsc -p electron/tsconfig.json --watch",
+    "build": "run-p type-check \"build:vite {@}\" --",
+    "build:vite": "vite build",
+    "dev": "vite",
     "preview": "vite preview",
     "type-check": "vue-tsc --build",
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/",
-    "start": "cross-env NODE_ENV=production electron dist/electron/main.js",
-    "release": "electron-builder"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "pinia": "^3.0.1",
@@ -76,10 +56,6 @@
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.5.0",
     "@vue/tsconfig": "^0.7.0",
-    "concurrently": "^9.1.2",
-    "cross-env": "^7.0.3",
-    "electron": "^36.4.0",
-    "electron-builder": "^26.0.12",
     "eslint": "^9.22.0",
     "eslint-plugin-oxlint": "^0.16.0",
     "eslint-plugin-vue": "~10.0.0",

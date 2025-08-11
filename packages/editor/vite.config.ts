@@ -7,10 +7,6 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-	build: {
-		outDir: 'dist/vite',
-		// emptyOutDir: false, // чтобы не стирало `dist/electron`
-	},
 	plugins: [
 		vue(),
 		vueDevTools(),

@@ -1,0 +1,38 @@
+{
+  "name": "@zettl/android-app",
+  "version": "0.0.0",
+  "description": "Cross-platform note editor with Markdown, tagging, and local-first storage, built with Vue and Electron.",
+  "keywords": [
+    "zettl",
+    "android",
+    "mobile",
+    "capacitor",
+    "note-editor",
+    "markdown",
+    "offline-first",
+    "local-storage",
+    "pwa",
+    "vue",
+    "markdown-notes"
+  ],
+  "author": "Dmitry Dobrynin <dd@tovarisch.engineer>",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dd/zettl-editor.git",
+    "directory": "packages/editor"
+  },
+  "bugs": {
+    "url": "https://github.com/dd/zettl-editor/issues"
+  },
+  "homepage": "https://github.com/dd/zettl-editor#readme",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -C ../editor build && electron-builder"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  }
+}

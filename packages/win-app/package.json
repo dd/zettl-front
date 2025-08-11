@@ -1,0 +1,80 @@
+{
+  "name": "@zettl/win-app",
+  "version": "0.0.0",
+  "description": "Windows build of the Zettl note editor — a local-first Markdown-based note-taking app built with Vue and Electron.",
+  "keywords": [
+    "zettl",
+    "windows",
+    "electron",
+    "note-editor",
+    "markdown",
+    "installer",
+    "nsis",
+    "local-storage",
+    "desktop-app",
+    "vue"
+  ],
+  "author": "Dmitry Dobrynin <dd@tovarisch.engineer>",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dd/zettl-editor.git",
+    "directory": "packages/win-app"
+  },
+  "bugs": {
+    "url": "https://github.com/dd/zettl-editor/issues"
+  },
+  "homepage": "https://github.com/dd/zettl-editor#readme",
+  "private": true,
+  "build": {
+    "appId": "engineer.tovarisch.zettl.editor.win",
+    "productName": "Zettl Editor",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**"
+    ],
+    "extraMetadata": {
+      "main": "dist/main.js"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "concurrently \"pnpm:watch:main\" \"cross-env NODE_ENV=development electron dist/main.js\"",
+    "watch:main": "tsc -p tsconfig.json --watch",
+    "start": "cross-env NODE_ENV=production electron dist/main.js",
+    "release": "electron-builder"
+  },
+  "dependencies": {
+    "@zettl/editor": "workspace:*",
+    "electron-log": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/electron": "^1.6.12",
+    "@types/node": "^22.15.31",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12",
+    "npm-run-all2": "^7.0.2",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  }
+}

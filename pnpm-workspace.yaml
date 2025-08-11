@@ -1,4 +1,6 @@
 packages:
   - 'packages/editor'
   - 'packages/core'
+  - 'packages/win-app'
+  - 'packages/android-app'
   - 'shared'
