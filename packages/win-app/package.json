@@ -59,6 +59,7 @@
     "release": "electron-builder"
   },
   "dependencies": {
+    "@zettl/core": "workspace:*",
     "@zettl/editor": "workspace:*",
     "electron-log": "^5.4.1"
   },

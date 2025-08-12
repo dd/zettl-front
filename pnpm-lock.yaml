@@ -79,6 +79,9 @@ importers:
 
   packages/win-app:
     dependencies:
+      '@zettl/core':
+        specifier: workspace:*
+        version: link:../core
       '@zettl/editor':
         specifier: workspace:*
         version: link:../editor
